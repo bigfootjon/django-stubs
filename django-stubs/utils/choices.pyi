@@ -1,11 +1,12 @@
 from collections.abc import Iterable, Iterator
 from typing import Any, Protocol, TypeVar, type_check_only
 
+from django.db.models.enums import Choices
 from typing_extensions import TypeAlias
 
 _Choice: TypeAlias = tuple[Any, Any]
 _ChoiceNamedGroup: TypeAlias = tuple[str, Iterable[_Choice]]
-_Choices: TypeAlias = Iterable[_Choice | _ChoiceNamedGroup]
+_Choices: TypeAlias = Iterable[_Choice | _ChoiceNamedGroup] | type[Choices]
 
 @type_check_only
 class _ChoicesCallable(Protocol):
