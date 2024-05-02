@@ -5,7 +5,7 @@ from django.db.models import Choices
 
 _Choice: TypeAlias = tuple[Any, Any]
 _ChoiceNamedGroup: TypeAlias = tuple[str, Iterable[_Choice]]
-_Choices: TypeAlias = Iterable[_Choice | _ChoiceNamedGroup]
+_Choices: TypeAlias = Iterable[_Choice | _ChoiceNamedGroup] | type[Choices]
 _ChoicesMapping: TypeAlias = Mapping[Any, Any]
 _ChoicesInput: TypeAlias = _Choices | _ChoicesMapping | type[Choices] | Callable[[], _Choices | _ChoicesMapping]  # noqa: PYI047
 
